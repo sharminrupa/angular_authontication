@@ -1,0 +1,171 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <h1 class="text-center">This is a Sign UP page</h1>
+      <form class="justify-content-center mt-5" #signUp="ngForm" (ngSubmit)="submit()">
+
+        <div class="form-group ">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputID">ID:</label>
+            </div>
+            <div class="col-md-5">
+              <input type="id" class="form-control" id="inputID" name="id" placeholder="Enter your ID"
+                required="please enter your id" [(ngModel)]="user.id" #id="ngModel">
+            </div>
+            <div class="col-md-5">
+                <div [hidden]="id.valid">
+                    <p>Id is empty not allowed</p>
+                  </div>
+              </div>
+          </div>
+          
+        </div>
+
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputname">Name:</label>
+            </div>
+            <div class="col-md-5">
+              <input type="name" class="form-control" id="inputName" name="name" required="please enter your name"
+                placeholder="name" [(ngModel)]="user.name" #name="ngModel">
+            </div>
+            <div class="col-md-5">
+                <div [hidden]="name.valid">
+                    <p>Name is empty not allowed</p>
+                  </div>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputUserName">Username:</label>
+            </div>
+            <div class="col-md-5">
+              <input type="username" class="form-control" id="inputUserName" name="username"
+                required="please enter your username" placeholder="username" [(ngModel)]="user.username"
+                #username="ngModel">
+            </div>
+            <div class="col-md-5">
+                <div [hidden]="username.valid">
+                    <p>Username is empty not allowed</p>
+                  </div>
+            </div>
+          </div>
+         
+        </div>
+
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputPassword">Password:</label>
+            </div>
+            <div class="col-md-5">
+              <input type="password" class="form-control" id="inputPassword" name="password"
+                required="please enter your password" placeholder="Password" [(ngModel)]="user.password"
+                #password="ngModel">
+            </div>
+            <div class="col-md-5">
+                <div [hidden]="password.valid">
+                    <p>Password is empty not allowed</p>
+                  </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputdate">Date:</label>
+            </div>
+            <div class="col-md-5">
+              <input type="date" class="form-control" id="inputdate" name="dob" required="please enter your dob"
+                [(ngModel)]="user.dob" #dob="ngModel">
+            </div>
+            <div class="col-md-5">
+                <div [hidden]="dob.valid">
+                    <p>Date is empty not allowed</p>
+                  </div>
+            </div>
+          </div>
+          
+        </div>
+
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputEmail">Email:</label>
+            </div>
+            <div class="col-md-5">
+              <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email"
+                required="please enter your email" [(ngModel)]="user.email" #email="ngModel">
+            </div>
+            <div class="col-md-5">
+                <div [hidden]="email.valid">
+                    <p>Email is empty not allowed</p>
+                  </div>
+            </div>
+          </div>
+         
+        </div>
+
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputMobile">Mobile:</label>
+            </div>
+            <div class="col-md-5">
+              <input type="mobile" class="form-control" id="inputMobile" name="mobile"
+                required="please enter your email" placeholder="mobile" [(ngModel)]="user.mobile" #mobile="ngModel">
+            </div>
+            <div class="col-md-5">
+                <div [hidden]="mobile.valid">
+                    <p>Mobile is empty not allowed</p>
+                  </div>
+            </div>
+          </div>
+          
+        </div>
+
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputAddress">Address:</label>
+            </div>
+            <div class="col-md-5">
+              <textarea type="textarea" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St"
+                [(ngModel)]="user.address"></textarea>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!signUp.form.valid">
+          <a routerLink="/login" routerLinkActive="active">Submit</a>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let u of userList">
+  <p>{{u.id}}</p>
+  <p>{{u.name}}</p>
+  <p>{{u.username}}</p>
+  <p>{{u.password}}</p>
+  <p>{{u.dob}}</p>
+  <p>{{u.email}}</p>
+  <p>{{u.mobile}}</p>
+  <p>{{u.address}}</p>
+</div>
+
+<router-outlet></router-outlet>
