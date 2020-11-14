@@ -149,23 +149,53 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-success" [disabled]="!signUp.form.valid">
-          <a routerLink="/login" routerLinkActive="active">Submit</a>
+        <button type="submit" class="btn btn-success" [disabled]="!signUp.form.valid" >
+          Save
         </button>
       </form>
     </div>
   </div>
 </div>
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered table-striper table-hover">
+        
+          <thead class="bg-dark text-white text-center">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Password</th>
+              <th scope="col">Date</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile</th>
+              <th scope="col">Address</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let u of userList">
+              <th scope="row">{{u.id}}</th>
+              <td>{{u.name}}</td>
+              <td>{{u.username}}</td>
+              <td>{{u.password}}</td>
+              <td>{{u.dob}}</td>
+              <td>{{u.email}}</td>
+              <td>{{u.mobile}}</td>
+              <td>{{u.address}}</td>
+              <td>
+                <a href="">Edit</a> | 
+                <a href="">Delete</a>
+              </td>
+            </tr>
+            
+           
+          </tbody>      
 
-<div *ngFor="let u of userList">
-  <p>{{u.id}}</p>
-  <p>{{u.name}}</p>
-  <p>{{u.username}}</p>
-  <p>{{u.password}}</p>
-  <p>{{u.dob}}</p>
-  <p>{{u.email}}</p>
-  <p>{{u.mobile}}</p>
-  <p>{{u.address}}</p>
+      </table>
+    </div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

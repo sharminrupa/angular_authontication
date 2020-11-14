@@ -12,7 +12,13 @@ export class MyServeceService {
   constructor(private http: HttpClient) {
    }
   getUsers(): Observable<User[]>{
-    const response = this.http.get<User[]>(this.baseUrl + '/api/user/index');
-    return response;
+    return this.http.get<User[]>(this.baseUrl + '/api/user/index');
   }
+
+  saveUser(entity): Observable<User>{
+    const res = this.http.post<User>(this.baseUrl + '/api/user/save', entity);
+    return res;
+  }
+
+  
 }

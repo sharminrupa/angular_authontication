@@ -20,7 +20,10 @@ export class SignUpComponent implements OnInit {
     this.getUsers();
   }
  submit(): void {
-  console.log('form submitted');
+  this.userService.saveUser(this.user)
+  .subscribe(user => {
+    console.log(user);
+  });
   this.isSubmited = true;
  }
 
